@@ -92,10 +92,9 @@ while 1:
     spacer(50)    
     if won == True:
         total_time = datetime.now()
-        print('YEAH YOU WON')
-        print('YOU FUCKING DID IT')
-        print('IN ONLY ' + str((total_time - start_time).seconds) + ' SECONDS')
-        print('WOOOOOOOOOO\n' * 10)
+        print('Congratulations!')
+        print('You defused the bomb in ' + str((total_time - start_time).seconds) + ' seconds!')
+        print('Well done!')
         input()
         quit()
     
