@@ -16,19 +16,19 @@ Anything else inputted will be taken as an answer to the module.
 
 
 ### Modules
-## Simple Wires
+#### Simple Wires
 Choose the correct wire to cut out of a series of coloured wires.
-## Keypad
+#### Keypad
 You will see four strange symbols that must be ordered correctly.
-## Clock
+#### Clock
 A friendly display shows the time, to which you must give the right time back!
-## Who's On First
+#### Who's On First
 Words everywhere, only one correct answer.
-## Crazy Talk
+#### Crazy Talk
 Strange Phrases that leads to an even stranger word.
-## Color Math
+#### Color Math
 Colourful digits, a not so colorful process to get the final number.
-## Text Adventure
+#### Text Adventure
 What will your character do?
-## Colorblindness
+#### Colorblindness
 One colour is right, but which?
