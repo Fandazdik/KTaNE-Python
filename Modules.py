@@ -3,6 +3,10 @@ from module_folder import SimpleWires
 from module_folder import Keypad
 from module_folder import WhosOnFirst
 from module_folder import Clock
+from module_folder import CrazyTalk
+from module_folder import ColorMath
+from module_folder import AnimalFight
+from module_folder import Colorblindness
 
 class Modules:
     
@@ -13,6 +17,10 @@ class Modules:
         self.keypad = Keypad.Keypad
         self.whosOnFirst = WhosOnFirst.WhosOnFirst
         self.clock = Clock.Clock
+        self.crazyTalk = CrazyTalk.CrazyTalk
+        self.colorMath = ColorMath.Colormath
+        self.animalFight = AnimalFight.AnimalFight
+        self.colorblindness = Colorblindness.Colorblindness
     
     
     # Global assignments
@@ -20,8 +28,21 @@ class Modules:
     keypad = Keypad.Keypad
     whosOnFirst = WhosOnFirst.WhosOnFirst
     clock = Clock.Clock
+    crazyTalk = CrazyTalk.CrazyTalk
+    colorMath = ColorMath.ColorMath
+    animalFight = AnimalFight.AnimalFight
+    colorblindness = Colorblindness.Colorblindness
     
-    module_list = [simpleWires, keypad, whosOnFirst, clock]
+    module_list = [
+        simpleWires,
+        keypad,
+        whosOnFirst,
+        clock,
+        crazyTalk,
+        colorMath,
+        animalFight,
+        colorblindness
+        ]
     
     def create_modules(amount):
     

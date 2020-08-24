@@ -1,14 +1,11 @@
 from datetime import datetime
 import Bomb
+import Modules
 # There's an annoying import thing where relative paths
 # don't work when imported from another program
 import ClockRoman
 
-bomb = Bomb.Bomb(4)
-
-divider_length = 60
-
-def show_modules():
+def show_all_modules():
     print('Serial Code: ' + bomb.serial)
     print()
     print('=' * divider_length)
@@ -30,6 +27,8 @@ def show_module(num):
     print('Defused: ' + str(bomb.bomb_modules[num][1].is_defused))
     print()
     print(bomb.bomb_modules[num][1].displayed)
+    # NEXT LINE REVEALS ANSWER FOR DEBUG ONLY
+    #print(bomb.bomb_modules[num][1].correct)
     print()
     print('Strikes: ' + str(bomb.strikes))
     print('=' * divider_length)
@@ -44,12 +43,27 @@ def lose():
     input('you\'re lose game over sorry')
     quit()
 
+# START =====================================================================================
+
+module_rand = input('Would you like one of each module or random types? [(O)ne of each / (R)andom types]\n> ')
+
+if module_rand == 'R':
+    module_amount = input('How many modules would you like? \n> ')
+    bomb = Bomb.Bomb(int(module_amount), is_random = True)
+else:
+    bomb = Bomb.Bomb(0, is_random = False)
+
+spacer(100)
+divider_length = 60
+
+
+
 start_time = datetime.now()
 in_module = False
 module_num = ''
 while 1:
     if not in_module:
-        show_modules()
+        show_all_modules()
         module_num = int(input('> '))
         
         if module_num in list(range(len(bomb.bomb_modules))):

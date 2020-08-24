@@ -1,19 +1,21 @@
 import random
 import Modules
 import inspect
-
+from colorama import Fore, Style
 class Bomb:
     
-    def __init__(self, module_count):
+    def __init__(self, module_count, is_random = False):
+        
 
         temp_serial = Bomb.random_serial()
-        self.serial = temp_serial[0]
+        self.is_random = is_random
+        self.serial = Fore.RED + temp_serial[0] + Fore.RESET
         self.serial_parse = temp_serial[1]
         
         self.strikes = 0
         
         # for modules on bomb
-        self.bomb_modules = Bomb.make_modules(self, amount = module_count, serial_parse = self.serial_parse)
+        self.bomb_modules = Bomb.make_modules(self, amount = module_count, serial_parse = self.serial_parse, is_random = is_random)
         
         # Make a defused dictionary
         self.defused = Bomb.update_defused(self)
@@ -94,37 +96,37 @@ class Bomb:
     def add_strike(self):
         self.strikes += 1
     
-    def make_modules(self, amount, serial_parse):
+    def make_modules(self, amount, serial_parse, is_random = False):
         module_list = []
         
         counter = 0
         
-        # FOR ONE OF EACH
-        no_index_list = random.sample(Modules.Modules.module_list, k = 4)
+        if is_random == False:
+            no_index_list = random.sample(Modules.Modules.module_list, k = len(Modules.Modules.module_list))
+            
+            index_list = []
+            for module in no_index_list:
+                index_list.append((counter, module(serial_parse)))
+                counter += 1
+                
+            return index_list
         
-        index_list = []
-        for module in no_index_list:
-            index_list.append((counter, module(serial_parse)))
-            counter += 1
-            
-        return index_list
         
         
-        
-        # FOR RANDOM
-        '''
-        while amount != 0:
-            
-            module = random.choice(Modules.Modules.module_list)
-            
-            if inspect.getfullargspec(module).args == ['self', 'serial_parse']:
-                module_list.append((counter, module(self.serial_parse)))
-            else:
-                module_list.append((counter, module()))
-            
-            counter += 1
-            amount -= 1
-            
-        return module_list
-        '''
+        else:
+
+            while amount != 0:
+                
+                module = random.choice(Modules.Modules.module_list)
+                
+                if inspect.getfullargspec(module).args == ['self', 'serial_parse']:
+                    module_list.append((counter, module(self.serial_parse)))
+                else:
+                    module_list.append((counter, module()))
+                
+                counter += 1
+                amount -= 1
+                
+            return module_list
+
             
