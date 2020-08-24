@@ -64,10 +64,13 @@ module_num = ''
 while 1:
     if not in_module:
         show_all_modules()
-        module_num = int(input('> '))
-        
-        if module_num in list(range(len(bomb.bomb_modules))):
-            in_module = True   
+        try:
+            module_num = int(input('> '))
+
+            if module_num in list(range(len(bomb.bomb_modules))):
+                in_module = True  
+        except:
+            pass
             
     elif in_module:
         show_module(module_num)
