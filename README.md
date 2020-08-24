@@ -2,6 +2,7 @@
 # KTaNE-Python
 ## To run
 Open and run `KTaNE.py`, use `KTaNE Manual.pdf` as the defuser's guide.
+### Dependencies
 Please note, colorama will need to be installed.
 Install with `pip3.8 install colorama`
 
